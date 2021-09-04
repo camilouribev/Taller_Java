@@ -1,6 +1,5 @@
 package com.taller_java;
 
-import javax.sound.midi.Soundbank;
 import javax.swing.*;
 import java.text.DecimalFormat;
 
@@ -10,7 +9,7 @@ public class Main {
         int eleccion;
         do {
             eleccion = Integer.parseInt(JOptionPane.
-                    showInputDialog(null, "Que punto quieres probar?: \n 1.Compración I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE));
+                    showInputDialog(null, "Que punto quieres probar?: \n 1.Compración I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE));
             switch (eleccion) {
                 case 1:
                     punto1();
@@ -115,14 +114,25 @@ public class Main {
             return;
         }
         double precioIva = precioBase + precioBase * 0.21;
-        DecimalFormat areaFormat = new DecimalFormat("#.00"); // Recorta a máximo 2 decimales
+        DecimalFormat precioFormat = new DecimalFormat("#.00"); // Recorta a máximo 2 decimales
 
-        JOptionPane.showMessageDialog(null, "El precio con IVA incluido es de " + areaFormat.format(precioIva) + " presos",
+        JOptionPane.showMessageDialog(null, "El precio con IVA incluido es de " + precioFormat.format(precioIva) + " presos",
                 "Calculadora de precio con IVA", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private static void punto5(){
-
+        JOptionPane.showMessageDialog(null, "Observa la consola",
+                "Pares While", JOptionPane.INFORMATION_MESSAGE);
+        int num = 1;
+        while (num < 101) {
+            if (num %2 == 0) {
+                System.out.println(num + " par");
+            }else {
+                System.out.println(num + " Impar");
+            }
+            num++;
+        }
+        return;
     }
 }
 
