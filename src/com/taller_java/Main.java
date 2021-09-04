@@ -9,7 +9,7 @@ public class Main {
         int eleccion;
         do {
             eleccion = Integer.parseInt(JOptionPane.
-                    showInputDialog(null, "Que punto quieres probar?: \n 1.Compración I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE));
+                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While \n 6. Pares ciclo For ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE));
             switch (eleccion) {
                 case 1:
                     punto1();
@@ -27,6 +27,9 @@ public class Main {
 
                 case 5:
                     punto5();
+                    break;
+                case 6:
+                    punto6();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -126,13 +129,25 @@ public class Main {
         int num = 1;
         while (num < 101) {
             if (num %2 == 0) {
-                System.out.println(num + " par");
+                System.out.println(num + " Par");
             }else {
                 System.out.println(num + " Impar");
             }
             num++;
         }
         return;
+    }
+
+    private static void punto6(){
+        JOptionPane.showMessageDialog(null, "Observa la consola",
+                "Pares ciclo For", JOptionPane.INFORMATION_MESSAGE);
+        for (int num =1; num < 101; num++) {
+            if (num %2 == 0) {
+                System.out.println(num + " Par");
+            }else {
+                System.out.println(num + "  Impar");
+            }
+        }
     }
 }
 
