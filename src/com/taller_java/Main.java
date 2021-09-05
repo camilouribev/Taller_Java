@@ -13,7 +13,7 @@ public class Main {
             inicio = JOptionPane.
                     showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación " +
                             "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
-                            "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " + "\n 9. Concatenación de cadenas ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -45,6 +45,10 @@ public class Main {
 
                 case 8:
                     punto8();
+                    break;
+
+                case 9:
+                    punto9();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -199,6 +203,15 @@ public class Main {
                         "Error!", JOptionPane.ERROR_MESSAGE);
                 break;
         }
+    }
+
+    private static void punto9(){
+        String sonrisa = "La sonrisa será la mejor arma contra la tristeza";
+        String nuevo_mensaje = sonrisa.replaceAll("a","e").replaceAll("á", "e");
+        String input = JOptionPane.
+                showInputDialog(null, "Ingresa una frase", "Concatenación de cadenas", JOptionPane.QUESTION_MESSAGE);
+        JOptionPane.showMessageDialog(null, nuevo_mensaje+ " "+ input,
+                "Concatenación de cadenas", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private static boolean esNum(String input) {
