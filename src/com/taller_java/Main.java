@@ -14,7 +14,7 @@ public class Main {
                     showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación " +
                             "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
-                            "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " + "\n 11. Contador de caracteres y vocales ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -54,6 +54,10 @@ public class Main {
 
                 case 10:
                     punto10();
+                    break;
+
+                case 11:
+                    punto11();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -225,6 +229,28 @@ public class Main {
         String sinEspacios = input.replaceAll("\\s", ""); // using built in method
         JOptionPane.showMessageDialog(null, sinEspacios,
                 "Eliminación de espacios", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private static void punto11(){
+        String input = JOptionPane.
+                showInputDialog(null, "Ingresa una frase: ", "Contador de caracteres y vocales", JOptionPane.QUESTION_MESSAGE);
+        int size = input.length();
+        String inputLower = input.toLowerCase(Locale.ROOT);
+        int vowels = 0;
+            for (int i = 0; i < inputLower.length(); i++)
+            {
+                if (inputLower.charAt(i) == 'a' || inputLower.charAt(i) == 'e' || inputLower.charAt(i) == 'i'
+                        || inputLower.charAt(i) == 'o' || inputLower.charAt(i) == 'u' || inputLower.charAt(i) == 'á' ||
+                        inputLower.charAt(i) == 'é' || inputLower.charAt(i) == 'í'
+                        || inputLower.charAt(i) == 'ó' || inputLower.charAt(i) == 'ú')
+                {
+                    vowels++;
+                }
+            }
+
+        JOptionPane.showMessageDialog(null, "La frase ingresada tiene "+size+" caracteres y "+vowels+" vocales",
+                "Eliminación de espacios", JOptionPane.INFORMATION_MESSAGE);
+
     }
 
     private static boolean esNum(String input) {
