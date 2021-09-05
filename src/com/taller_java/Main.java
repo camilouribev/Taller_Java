@@ -10,7 +10,9 @@ public class Main {
         int eleccion;
         do {
             inicio = JOptionPane.
-                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While \n 6. Pares ciclo For ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación " +
+                            "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
+                            "\n 6. Pares ciclo For "+ "\n 7. Evita negativos ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -34,6 +36,10 @@ public class Main {
                     break;
                 case 6:
                     punto6();
+                    break;
+
+                case 7:
+                    punto7();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -145,13 +151,26 @@ public class Main {
         }
     }
 
-  /*  private static void esNum();(String input){
-        if (input.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingresa un valor válido",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        }else return;
-    }*/
+    private static void punto7(){
+        boolean esPositivo = false;
+
+        do {
+            String input = JOptionPane.
+                    showInputDialog(null, "Ingresa un número igual o mayor a cero", "Número positivo", JOptionPane.QUESTION_MESSAGE);
+            if (!esNum(input)) return;
+            double num = Double.parseDouble(input);
+            if (num < 0 ) {
+                JOptionPane.showMessageDialog(null, "Ingresa un número mayor que 0",
+                        "Error!", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Felicitaciones!, " + input+ " es igual o mayor a 0",
+                        "Número positivo", JOptionPane.INFORMATION_MESSAGE);
+                esPositivo = true;
+            }
+        } while (esPositivo == false);
+
+
+    }
 
     private static boolean esNum(String input) {
         if (esDouble(input) || esInt(input)) { //inicialmente chequea si es double o int, si lo es, no hay problema y retorna falso
