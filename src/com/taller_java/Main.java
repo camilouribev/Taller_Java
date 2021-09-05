@@ -2,6 +2,7 @@ package com.taller_java;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 public class Main {
 
@@ -12,7 +13,7 @@ public class Main {
             inicio = JOptionPane.
                     showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación " +
                             "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
-                            "\n 6. Pares ciclo For "+ "\n 7. Evita negativos ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -40,6 +41,10 @@ public class Main {
 
                 case 7:
                     punto7();
+                    break;
+
+                case 8:
+                    punto8();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -153,7 +158,6 @@ public class Main {
 
     private static void punto7(){
         boolean esPositivo = false;
-
         do {
             String input = JOptionPane.
                     showInputDialog(null, "Ingresa un número igual o mayor a cero", "Número positivo", JOptionPane.QUESTION_MESSAGE);
@@ -169,7 +173,32 @@ public class Main {
             }
         } while (esPositivo == false);
 
+    }
 
+    private static void punto8(){
+        String dia = JOptionPane.
+                showInputDialog(null, "Ingresa un dia de la semana y averigua si es festivo", "¿Laboral o festivo?", JOptionPane.QUESTION_MESSAGE);
+        switch (dia.toUpperCase(Locale.ROOT)) {
+            case "LUNES":
+            case "MARTES":
+            case "MIERCOLES":
+            case "MIÉRCOLES":
+            case "JUEVES":
+            case "VIERNES":
+                JOptionPane.showMessageDialog(null, "El dia "+ dia+" es laboral",
+                        "¿Laboral o festivo?", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case "SABADO":
+            case "SÁBADO":
+            case "DOMINGO":
+                JOptionPane.showMessageDialog(null, " El dia "+ dia+" es festivo!!!",
+                        "¿Laboral o festivo?", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, dia + " no es un día válido",
+                        "Error!", JOptionPane.ERROR_MESSAGE);
+                break;
+        }
     }
 
     private static boolean esNum(String input) {
