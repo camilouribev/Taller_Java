@@ -6,10 +6,14 @@ import java.text.DecimalFormat;
 public class Main {
 
     public static void main(String[] args) {
+        String inicio;
         int eleccion;
         do {
-            eleccion = Integer.parseInt(JOptionPane.
-                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While \n 6. Pares ciclo For ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE));
+            inicio = JOptionPane.
+                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While \n 6. Pares ciclo For ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+            if (!esNum(inicio)) return;
+            eleccion = Integer.parseInt(inicio);
+
             switch (eleccion) {
                 case 1:
                     punto1();
@@ -57,13 +61,11 @@ public class Main {
     private static void punto2() {
         String input1 = JOptionPane.
                 showInputDialog(null, "Selecciona el primer número:", "Comparación de números", JOptionPane.QUESTION_MESSAGE);
+        if (!esNum(input1)) return;
         String input2 = JOptionPane.
                 showInputDialog(null, "Selecciona el segundo número:", "Comparación de números", JOptionPane.QUESTION_MESSAGE);
-        if (input1.isEmpty() || input2.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingresa un valor válido",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if (!esNum(input2)) return;
+
         double num1 = Double.parseDouble(input1);
         double num2 = Double.parseDouble(input2);
         String message;
@@ -83,11 +85,7 @@ public class Main {
 
         String input = JOptionPane.
                 showInputDialog(null, "Escribe el radio de la circunferencia en cm", "Área de un círculo", JOptionPane.QUESTION_MESSAGE);
-        if (input.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingresa un valor válido",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if(!esNum(input))return;
         double radio = Double.parseDouble(input);
 
         if (radio <= 0) {
@@ -105,11 +103,8 @@ public class Main {
     private static void punto4() {
         String input = JOptionPane.
                 showInputDialog(null, "Escribe el precio base del producto en pesos", "Calculadora de precio con IVA", JOptionPane.QUESTION_MESSAGE);
-        if (input.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingresa un valor válido",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if (!esNum(input)) return;
+
         double precioBase = Double.parseDouble(input);
         if (precioBase <= 0) {
             JOptionPane.showMessageDialog(null, "El precio base no puede ser igual o menor a cero",
@@ -123,14 +118,14 @@ public class Main {
                 "Calculadora de precio con IVA", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private static void punto5(){
+    private static void punto5() {
         JOptionPane.showMessageDialog(null, "Observa la consola",
                 "Pares While", JOptionPane.INFORMATION_MESSAGE);
         int num = 1;
         while (num < 101) {
-            if (num %2 == 0) {
+            if (num % 2 == 0) {
                 System.out.println(num + " Par");
-            }else {
+            } else {
                 System.out.println(num + " Impar");
             }
             num++;
@@ -138,17 +133,55 @@ public class Main {
         return;
     }
 
-    private static void punto6(){
+    private static void punto6() {
         JOptionPane.showMessageDialog(null, "Observa la consola",
                 "Pares ciclo For", JOptionPane.INFORMATION_MESSAGE);
-        for (int num =1; num < 101; num++) {
-            if (num %2 == 0) {
+        for (int num = 1; num < 101; num++) {
+            if (num % 2 == 0) {
                 System.out.println(num + " Par");
-            }else {
+            } else {
                 System.out.println(num + "  Impar");
             }
         }
     }
+
+  /*  private static void esNum();(String input){
+        if (input.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa un valor válido",
+                    "Error!", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }else return;
+    }*/
+
+    private static boolean esNum(String input) {
+        if (esDouble(input) || esInt(input)) { //inicialmente chequea si es double o int, si lo es, no hay problema y retorna falso
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingresa un valor numérico válido",
+                    "Error!", JOptionPane.ERROR_MESSAGE);
+            return false;
+
+        }
+    }
+
+    private static boolean esDouble(String input) {
+        try {
+            Double.parseDouble(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private static boolean esInt(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 }
 
 
