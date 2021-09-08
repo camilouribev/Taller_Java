@@ -2,7 +2,6 @@ package com.taller_java;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.Locale;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -19,7 +18,7 @@ public class Main {
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
-                            "\n 13. Fecha y hora ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -69,6 +68,10 @@ public class Main {
                     break;
                 case 13:
                     punto13();
+                    break;
+
+                case 14:
+                    punto14();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -288,6 +291,24 @@ public class Main {
         LocalDateTime hora_actual = LocalDateTime.now();
         JOptionPane.showMessageDialog(null, "La Fecha y hora actuales son:\n"+formateador.format(hora_actual),
                 "Fecha y hora ", JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
+    private static void punto14(){
+        String input = JOptionPane.
+                showInputDialog(null, "Ingresa un número: ", "Contador", JOptionPane.QUESTION_MESSAGE);
+        if (!esNum(input)) return;
+        JOptionPane.showMessageDialog(null, "Observa la consola",
+                "Contador", JOptionPane.INFORMATION_MESSAGE);
+        int valor_inicial = Integer.parseInt(input);
+
+        for(int i = valor_inicial; i <=1000; i+=2 ){
+            System.out.println(i);
+
+        }
+    }
+
+    private static void punto15(){
 
     }
 
