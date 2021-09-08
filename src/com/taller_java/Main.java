@@ -2,7 +2,10 @@ package com.taller_java;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.Locale;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Main {
 
@@ -15,7 +18,8 @@ public class Main {
                             "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
-                            "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
+                            "\n 13. Fecha y hora ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -62,6 +66,9 @@ public class Main {
                     break;
                 case 12:
                     punto12();
+                    break;
+                case 13:
+                    punto13();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -118,7 +125,7 @@ public class Main {
 
         if (radio <= 0) {
             JOptionPane.showMessageDialog(null, "Un radio no puede ser igual o menor a cero",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         double area = Math.PI * Math.pow(radio, 2);
@@ -136,7 +143,7 @@ public class Main {
         double precioBase = Double.parseDouble(input);
         if (precioBase <= 0) {
             JOptionPane.showMessageDialog(null, "El precio base no puede ser igual o menor a cero",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         double precioIva = precioBase + precioBase * 0.21;
@@ -182,7 +189,7 @@ public class Main {
             double num = Double.parseDouble(input);
             if (num < 0 ) {
                 JOptionPane.showMessageDialog(null, "Ingresa un número mayor que 0",
-                        "Error!", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Felicitaciones!, " + input+ " es igual o mayor a 0",
                         "Número positivo", JOptionPane.INFORMATION_MESSAGE);
@@ -213,7 +220,7 @@ public class Main {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, dia + " no es un día válido",
-                        "Error!", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }
@@ -276,6 +283,14 @@ public class Main {
         }
     }
 
+    private static void punto13(){
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime hora_actual = LocalDateTime.now();
+        JOptionPane.showMessageDialog(null, "La Fecha y hora actuales son:\n"+formateador.format(hora_actual),
+                "Fecha y hora ", JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
 
 
 
@@ -285,7 +300,7 @@ public class Main {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Ingresa un valor numérico válido",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             return false;
 
         }
@@ -312,7 +327,7 @@ public class Main {
     private static boolean checkString(String input){
         if(input.length() == 0 ){
             JOptionPane.showMessageDialog(null, "No ingresaste ninguna frase!",
-                    "Error!", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }else{
             return true;
