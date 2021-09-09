@@ -34,7 +34,7 @@ public class Persona {
         this.sexo = sexo;
         this.generarDNI();
     }
-    public Persona( String nombre, int edad, int dni, String sexo, double estatura, double peso){
+    public Persona( String nombre, int edad, String sexo, double estatura, double peso){
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;

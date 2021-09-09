@@ -329,7 +329,7 @@ public class Main {
         } while (!salir );
     }
     private static void punto16(){
-        taller_java.decimosexto.Main main = new main.decimosexto.Main();
+        taller_java.decimosexto.Main main = new main.decimosexto    .Main();
         main.ejecutar();
     }
 
