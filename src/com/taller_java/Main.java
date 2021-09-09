@@ -18,7 +18,7 @@ public class Main {
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
-                            "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -69,9 +69,11 @@ public class Main {
                 case 13:
                     punto13();
                     break;
-
                 case 14:
                     punto14();
+                    break;
+                case 15:
+                    punto15();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -309,7 +311,22 @@ public class Main {
     }
 
     private static void punto15(){
+        boolean salir = false;
+        do {
+            String inicio = JOptionPane.
+                    showInputDialog(null, " \n 1.NUEVO ACTOR " +
+                            "\n 2.BUSCAR ACTOR\n 3. ELIMINAR ACTOR \n 4. MODIFICAR ACTOR \n 5. VER TODOS LOS ACTORES " +
+                            "\n 6. VER PELICULAS DE LOS ACTORES "+ "\n 7. VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES " + "\n 8. SALIR ", "***GESTIÓN CINEMATOGRÁFICA***", JOptionPane.QUESTION_MESSAGE);
 
+            switch (inicio) {
+                case "8":
+                        salir = true;
+                        return;
+                default:
+                    JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } while (!salir );
     }
 
 
