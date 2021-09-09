@@ -25,7 +25,7 @@ public class Main {
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
                             "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica "
                             + "\n 16. Clase Persona" + "\n 17. Electrodomésticos"+ "\n 18. Series y videojuegos", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
-            if (!esNum(inicio)) return;
+            if (!esNum(inicio))return;
             eleccion = Integer.parseInt(inicio);
 
             switch (eleccion) {
@@ -94,7 +94,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
                             ERROR, JOptionPane.ERROR_MESSAGE);
             }
-        } while (eleccion != 0);
+        } while (eleccion != 000);
     }
 
     private static void punto1() {
