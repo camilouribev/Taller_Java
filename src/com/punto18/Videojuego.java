@@ -69,10 +69,10 @@ public class Videojuego implements Entregable{
 
     @Override
     public String toString() {
-        return "Videojuego\n "+
-                "Titulo: " + titulo + "\n" +
+        return
+                "Título: " + titulo + "\n" +
                 "Horas: " + horas + "\n"+
-                "Genero: " + genero + "\n" +
+                "Género: " + genero + "\n" +
                 "Compañia: " + compania +  "\n" +
                 "Entregado: " + entregado +  "\n";
     }
@@ -92,5 +92,17 @@ public class Videojuego implements Entregable{
         return this.entregado;
     }
 
+    @Override
+    public int compareTo(Object a) {
+        Videojuego videojuegoAComparar = (Videojuego) a;
+
+        if(this.getHoras() < videojuegoAComparar.getHoras()){
+            return -1;
+        }else if(this.getHoras() == videojuegoAComparar.getHoras()){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
 }
 

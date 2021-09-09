@@ -67,10 +67,10 @@ public class Serie implements Entregable {
 
     @Override
     public String toString() {
-        return "Serie \n" +
-                "titulo: " + titulo + "\n" +
+        return
+                "Título: " + titulo + "\n" +
                 "Creador: " + creador + "\n" +
-                "Genero: " + genero + "\n" +
+                "Género: " + genero + "\n" +
                 "Temporadas: " + temporadas +"\n"+
                 "Entregado: " + entregado + "\n";
     }
@@ -91,7 +91,16 @@ public class Serie implements Entregable {
     }
 
     @Override
-    public void compareTo(Object a) {
+    public int compareTo(Object a) {
+         Serie serieAComparar = (Serie) a;
+
+         if(this.getTemporadas() < serieAComparar.getTemporadas()){
+             return -1;
+         }else if(this.getTemporadas() == serieAComparar.getTemporadas()){
+             return 0;
+         }else{
+             return 1;
+         }
 
     }
 }

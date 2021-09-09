@@ -1,6 +1,7 @@
 package com.taller_java;
 import com.punto16.*;
-import com.punto17.Punto17;
+import com.punto17.*;
+import com.punto18.*;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
@@ -21,7 +22,7 @@ public class Main {
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
                             "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica "
-                            + "\n 16. Clase Persona" + "\n 17. Electrodomésticos", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            + "\n 16. Clase Persona" + "\n 17. Electrodomésticos"+ "\n 18. Series y videojuegos", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -83,6 +84,9 @@ public class Main {
                     break;
                 case 17:
                     Punto17.ejecutar();
+                    break;
+                case 18:
+                    Punto18.ejecutar();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
