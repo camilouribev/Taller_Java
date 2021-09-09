@@ -1,9 +1,9 @@
-package decimosexto;
+package com.punto16;
 
 public class Persona {
     private String nombre;
     private int edad;
-    private int dni;
+    private String dni;
     private String sexo;
     private double estatura;
     private double peso;
@@ -15,7 +15,6 @@ public class Persona {
     private final int INFRAPESO = -1;
     private final int PESO_IDEAL = 0;
     private final int SOBREPESO = 1;
-
 
     public Persona(){
         this.nombre = "";
@@ -37,10 +36,10 @@ public class Persona {
     public Persona( String nombre, int edad, String sexo, double estatura, double peso){
         this.nombre = nombre;
         this.edad = edad;
-        this.dni = dni;
         this.sexo = sexo;
         this.estatura = estatura;
         this.peso = peso;
+        this.generarDNI();
     }
 
     public double calcularIMC(){
@@ -70,7 +69,12 @@ public class Persona {
     }
 
     private void generarDNI(){
-        this.dni = (int) (Math.floor(Math.random()*(10000000)));
+        String juegoCaracteres="TRWAGMYFPDXBNJZSQVHLCKE";
+        int aleatorio = (int) (Math.floor(Math.random()*(100000000)));
+        int modulo= aleatorio % 23;
+        char letra = juegoCaracteres.charAt(modulo);
+        String dni = String.valueOf(aleatorio)+letra;
+        this.dni = dni;
     }
 
 
@@ -89,7 +93,7 @@ public class Persona {
         return this.edad;
     }
 
-    public int getDNI(){
+    public String getDNI(){
         return this.dni;
     }
 

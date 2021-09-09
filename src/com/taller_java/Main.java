@@ -1,4 +1,5 @@
 package com.taller_java;
+import com.punto16.*;
 
 import javax.swing.*;
 import java.text.DecimalFormat;
@@ -18,7 +19,8 @@ public class Main {
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
-                            "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica "
+                            + "\n 16. Clase Persona ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -75,9 +77,12 @@ public class Main {
                 case 15:
                     punto15();
                     break;
+                case 16:
+                    punto16();
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
-                            "Hey!", JOptionPane.ERROR_MESSAGE);
+                            "Error", JOptionPane.ERROR_MESSAGE);
             }
         } while (eleccion != 0);
     }
@@ -190,8 +195,8 @@ public class Main {
         do {
             String input = JOptionPane.
                     showInputDialog(null, "Ingresa un número igual o mayor a cero", "Número positivo", JOptionPane.QUESTION_MESSAGE);
-            if (!esNum(input)) return;
-            double num = Double.parseDouble(input);
+                if (!esNum(input)) return;
+                double num = Double.parseDouble(input);
             if (num < 0 ) {
                 JOptionPane.showMessageDialog(null, "Ingresa un número mayor que 0",
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -306,7 +311,6 @@ public class Main {
 
         for(int i = valor_inicial; i <=1000; i+=2 ){
             System.out.println(i);
-
         }
     }
 
@@ -329,14 +333,14 @@ public class Main {
         } while (!salir );
     }
     private static void punto16(){
-        taller_java.decimosexto.Main main = new main.decimosexto    .Main();
-        main.ejecutar();
+
+        Punto16.ejecutar();
     }
 
 
 
 
-    private static boolean esNum(String input) {
+    public static boolean esNum(String input) {
         if (esDouble(input) || esInt(input)) { //inicialmente chequea si es double o int, si lo es, no hay problema y retorna falso
             return true;
         } else {
@@ -347,7 +351,7 @@ public class Main {
         }
     }
 
-    private static boolean esDouble(String input) {
+    public static boolean esDouble(String input) {
         try {
             Double.parseDouble(input);
             return true;
@@ -356,7 +360,7 @@ public class Main {
         }
     }
 
-    private static boolean esInt(String input) {
+    public static boolean esInt(String input) {
         try {
             Integer.parseInt(input);
             return true;
@@ -365,9 +369,9 @@ public class Main {
         }
     }
 
-    private static boolean checkString(String input){
+    public static boolean checkString(String input){
         if(input.length() == 0 ){
-            JOptionPane.showMessageDialog(null, "No ingresaste ninguna frase!",
+            JOptionPane.showMessageDialog(null, "No ingresaste ninguna palabra",
                     "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }else{
