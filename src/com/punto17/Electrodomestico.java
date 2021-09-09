@@ -51,20 +51,19 @@ public class Electrodomestico {
     private String comprobarColor(String color){
         String color_upper = color.toUpperCase();
         switch (color_upper){
-            case 'BLANCO':
-            case 'NEGRO':
-            case 'ROJO':
-            case 'AZUL':
-            case 'GRIS':
+            case "BLANCO":
+            case "NEGRO":
+            case "ROJO":
+            case "AZUL":
+            case "GRIS":
                 return color_upper;
-            break;
             default:
-                return 'BLANCO';
+                return "BLANCO";
         }
     }
     public double recargoPorPeso(){
-        int peso = getPeso();
-        double recargo;
+        double peso = getPeso();
+        double recargo = 0;
         if(peso > 80){
             recargo = 100;
         }else if(peso >= 50 && peso < 80 ){

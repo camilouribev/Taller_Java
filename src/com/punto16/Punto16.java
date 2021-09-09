@@ -49,9 +49,7 @@ public class Punto16 {
         Persona persona2 = new Persona(nombre, edad, sexo);
         Persona persona3 = new Persona();
 
-        System.out.println(persona1);
-        System.out.println(persona1.esMayorDeEdad());
-       chequearIMC(persona1);
+
         JOptionPane.showMessageDialog(null, "La persona 1 "+ chequearEsMayorDeEdad(persona1)+ " y " + chequearIMC(persona1)+"\n" +
                         "La persona 2 " + chequearEsMayorDeEdad(persona2)+ " y "+ chequearIMC(persona2)+"\n"+
                         "La persona 3 " + chequearEsMayorDeEdad(persona2)+ " y "+ chequearIMC(persona3)+"\n",
