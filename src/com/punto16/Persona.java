@@ -64,7 +64,7 @@ public class Persona {
     public String toString(){
         String info = " \n - Nombre: " +this.nombre+
                 "\n - Edad: "+this.getEdad()+"\n - Sexo: "+this.getSexo()+" \n - DNI: "+this.getDNI()+"\n - Estatura: " +this.getEstatura()+" m"+
-                "\n - Peso "+this.getPeso()+" kg";
+                "\n - Peso: "+this.getPeso()+" kg";
         return info;
     }
 

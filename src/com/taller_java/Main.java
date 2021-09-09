@@ -14,13 +14,13 @@ public class Main {
         int eleccion;
         do {
             inicio = JOptionPane.
-                    showInputDialog(null, "Que punto quieres probar?: \n 1.Comparación " +
+                    showInputDialog(null, "¿Que punto quieres probar?:\n \n 1.Comparación " +
                             "I\n 2.Comparación II\n 3. Área de un círculo \n 4. Cálculo precio con IVA \n 5. Pares While " +
                             "\n 6. Pares ciclo For "+ "\n 7. Evita negativos " + "\n 8. ¿Laboral o festivo? " +
                             "\n 9. Concatenación de cadenas " + "\n 10. Eliminación de espacios en cadenas " +
                             "\n 11. Contador de caracteres y vocales " +  "\n 12. Comparador de cadenas " +
                             "\n 13. Fecha y hora"+ "\n 14. Cuenta hasta 1000 "+ "\n 15. Gestión cinematográfica "
-                            + "\n 16. Clase Persona ", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
+                            + "\n 16. Clase Persona" + "\n 17. Clase Persona", "Taller Java Sofka U", JOptionPane.QUESTION_MESSAGE);
             if (!esNum(inicio)) return;
             eleccion = Integer.parseInt(inicio);
 
@@ -78,7 +78,10 @@ public class Main {
                     punto15();
                     break;
                 case 16:
-                    punto16();
+                    Punto16.ejecutar();
+                    break;
+                case 17:
+
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
@@ -331,10 +334,6 @@ public class Main {
                             "Error", JOptionPane.ERROR_MESSAGE);
             }
         } while (!salir );
-    }
-    private static void punto16(){
-
-        Punto16.ejecutar();
     }
 
 
