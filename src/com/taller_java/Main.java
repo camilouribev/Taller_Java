@@ -11,6 +11,8 @@ import java.time.LocalDateTime;
 
 public class Main {
 
+    static final String ERROR = "Error";
+
     public static void main(String[] args) {
         String inicio;
         int eleccion;
@@ -90,7 +92,7 @@ public class Main {
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
-                            "Error", JOptionPane.ERROR_MESSAGE);
+                            ERROR, JOptionPane.ERROR_MESSAGE);
             }
         } while (eleccion != 0);
     }
@@ -143,7 +145,7 @@ public class Main {
 
         if (radio <= 0) {
             JOptionPane.showMessageDialog(null, "Un radio no puede ser igual o menor a cero",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                    ERROR, JOptionPane.ERROR_MESSAGE);
             return;
         }
         double area = Math.PI * Math.pow(radio, 2);
@@ -161,7 +163,7 @@ public class Main {
         double precioBase = Double.parseDouble(input);
         if (precioBase <= 0) {
             JOptionPane.showMessageDialog(null, "El precio base no puede ser igual o menor a cero",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                    ERROR, JOptionPane.ERROR_MESSAGE);
             return;
         }
         double precioIva = precioBase + precioBase * 0.21;
@@ -183,7 +185,7 @@ public class Main {
             }
             num++;
         }
-        return;
+
     }
 
     private static void punto6() {
@@ -207,7 +209,7 @@ public class Main {
                 double num = Double.parseDouble(input);
             if (num < 0 ) {
                 JOptionPane.showMessageDialog(null, "Ingresa un número mayor que 0",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                        ERROR, JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Felicitaciones!, " + input+ " es igual o mayor a 0",
                         "Número positivo", JOptionPane.INFORMATION_MESSAGE);
@@ -238,7 +240,7 @@ public class Main {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, dia + " no es un día válido",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                        ERROR, JOptionPane.ERROR_MESSAGE);
                 break;
         }
     }
@@ -315,7 +317,8 @@ public class Main {
         if (!esNum(input)) return;
         JOptionPane.showMessageDialog(null, "Observa la consola",
                 "Contador", JOptionPane.INFORMATION_MESSAGE);
-        int valor_inicial = Integer.parseInt(input);
+        double input_double = Math.round(Double.parseDouble(input));
+        int valor_inicial = (int) input_double;
 
         for(int i = valor_inicial; i <=1000; i+=2 ){
             System.out.println(i);
@@ -336,7 +339,7 @@ public class Main {
                         return;
                 default:
                     JOptionPane.showMessageDialog(null, "Ingresaste una opcion invalida",
-                            "Error", JOptionPane.ERROR_MESSAGE);
+                            ERROR, JOptionPane.ERROR_MESSAGE);
             }
         } while (!salir );
     }
@@ -349,7 +352,7 @@ public class Main {
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "Ingresa un valor numérico válido",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                    ERROR, JOptionPane.ERROR_MESSAGE);
             return false;
 
         }
@@ -376,7 +379,7 @@ public class Main {
     public static boolean checkString(String input){
         if(input.length() == 0 ){
             JOptionPane.showMessageDialog(null, "No ingresaste ninguna palabra",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+                    ERROR, JOptionPane.ERROR_MESSAGE);
             return false;
         }else{
             return true;
