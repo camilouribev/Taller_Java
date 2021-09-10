@@ -156,6 +156,7 @@ public class Main {
     }
 
     private static void punto4() {
+        final double IVA = 0.21;
         String input = JOptionPane.
                 showInputDialog(null, "Escribe el precio base del producto en pesos", "Calculadora de precio con IVA", JOptionPane.QUESTION_MESSAGE);
         if (!esNum(input)) return;
@@ -166,7 +167,7 @@ public class Main {
                     ERROR, JOptionPane.ERROR_MESSAGE);
             return;
         }
-        double precioIva = precioBase + precioBase * 0.21;
+        double precioIva = precioBase + precioBase * IVA;
         DecimalFormat precioFormat = new DecimalFormat("#.00"); // Recorta a máximo 2 decimales
 
         JOptionPane.showMessageDialog(null, "El precio con IVA incluido es de " + precioFormat.format(precioIva) + " presos",
@@ -257,7 +258,10 @@ public class Main {
     private static void punto10(){
         String input = JOptionPane.
                 showInputDialog(null, "Ingresa una frase: ", "Eliminación de espacios", JOptionPane.QUESTION_MESSAGE);
-        String sinEspacios = input.replaceAll("\\s", ""); // using built in method
+        if (!checkString(input)) return;
+
+
+        String sinEspacios = input.replaceAll("\\s", "");
         JOptionPane.showMessageDialog(null, sinEspacios,
                 "Eliminación de espacios", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -378,7 +382,7 @@ public class Main {
 
     public static boolean checkString(String input){
         if(input.length() == 0 ){
-            JOptionPane.showMessageDialog(null, "No ingresaste ninguna palabra",
+            JOptionPane.showMessageDialog(null, "No ingresaste ninguna cadena",
                     ERROR, JOptionPane.ERROR_MESSAGE);
             return false;
         }else{
